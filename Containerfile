@@ -1,24 +1,32 @@
+# syntax=docker/dockerfile:1
 
-# Container image build arguments:
-ARG podmanversion="x.x.x"
+# Global image args:
+ARG pythonversion="x.x.x"
 
-# Base image:
-FROM quay.io/podman/stable:v${podmanversion}
+# Base Image:
+FROM docker.io/python:${pythonversion}-alpine
 
-# Package installs/updates:
-RUN dnf install -y \
-      git \
-      pip
+# Change working directory:
+WORKDIR /tmp
 
-# Add Pip packages file:
-COPY ./requirements.txt /tmp/requirements.txt
+# Install extra system packages
+RUN apk add --no-cache \
+    make=4.3-r0
 
-# Install Sphinx:
-RUN pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt
+# Copy necessary files:
+COPY ./requirements.txt .
 
-# Clean up extra files:
-RUN rm /tmp/requirements.txt
+# Install extra Python packages:
+RUN pip3 install -r ./requirements.txt
 
-# Override container.conf:
-RUN sed -i 's/\(^utsns=\).*/\1\"private\"/' /etc/containers/containers.conf
+# Change working directory:
+WORKDIR /docs
+
+# Ports:
+EXPOSE 8000
+
+# Volumes:
+VOLUME [ "/docs" ]
+
+# Run once the container has started:
+ENTRYPOINT [ "make" ]

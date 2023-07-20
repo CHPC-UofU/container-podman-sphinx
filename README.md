@@ -1,13 +1,13 @@
-# Podman-in-Podman: Sphinx
+# Sphinx
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
-[![Release](https://github.com/CHPC-UofU/container-podman-sphinx/actions/workflows/release.yml/badge.svg)](https://github.com/CHPC-UofU/container-podman-sphinx/actions/workflows/release.yml)
+[![Release](https://github.com/CHPC-UofU/container-sphinx/actions/workflows/release.yml/badge.svg)](https://github.com/CHPC-UofU/container-sphinx/actions/workflows/release.yml)
 
-Podman-in-podman (PINP) container image with Sphinx.
+Container image with the Sphinx static site generator.
 
 ## Image Tags
 
-* `latest`: Latest stable version of the container currently based on Podman 4.2.0.
+* `latest`: Latest stable version of the container currently based on Python 3.10.1 and Sphinx 6.2.1.
 
 ## How to Build
 
@@ -18,16 +18,16 @@ This image is built on GitHub automatically any time a commit is made or merged 
 3. Build the image:
 
    ```shell
-   podman build --file Containerfile --tag container-podman-sphinx:latest .
+   podman build --file Containerfile --tag container-sphinx:latest .
    ```
 
 ## How to Use
 
 1. Install [Podman](https://podman.io/getting-started/installation).
-2. Pull this image from GitHub (or use the image you built above `container-podman-sphinx:latest`):
+2. Pull this image from GitHub (or use the image you built above `container-sphinx:latest`):
 
    ```shell
-   podman pull ghcr.io/chpc-uofu/container-podman-sphinx:latest
+   podman pull ghcr.io/chpc-uofu/container-sphinx:latest
    ```
 3. Run a container from the image:
 
@@ -36,7 +36,7 @@ This image is built on GitHub automatically any time a commit is made or merged 
      -it \
      --privileged \
      --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro \
-     ghcr.io/chpc-uofu/container-podman-sphinx:latest \
+     ghcr.io/chpc-uofu/container-sphinx:latest \
      bash
    ```
 

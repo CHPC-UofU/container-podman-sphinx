@@ -1,0 +1,14 @@
+# conda env create --file environment.yml
+name: living-docs
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip=23.1.2
+  - python=3.10.1
+  - sphinx=6.2.1
+  - pip:
+#      - docutils==0.16
+      - sphinx-autobuild==2021.3.14
+      - sphinx-rtd-theme==1.2.2
+#      - sphinx-versions==1.1.3
