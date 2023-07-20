@@ -59,7 +59,7 @@ jobs:
           context: .
           file: ./Containerfile
           build-args: |
-            pythonversion=${{ env.PODMAN_VERSION }}
+            pythonversion=${{ env.PYTHON_VERSION }}
           platforms: linux/amd64,linux/arm64
           push: true
           labels: ${{ steps.metadata.outputs.labels }}
