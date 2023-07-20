@@ -29,4 +29,4 @@ EXPOSE 8000
 VOLUME [ "/docs" ]
 
 # Run once the container has started:
-ENTRYPOINT [ "make" ]
+ENTRYPOINT [ "/bin/bash" ]
