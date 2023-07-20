@@ -50,6 +50,3 @@ This image is built on GitHub automatically any time a commit is made or merged 
 ## Resources
 
 * [Sphinx: Getting Started](https://www.sphinx-doc.org/en/master/usage/quickstart.html)
-* [How to use Podman inside of a container](https://www.redhat.com/sysadmin/podman-inside-container)
-* [Cannot set hostname when running in the host UTS namespace with podman in container #11969](https://github.com/containers/podman/issues/11969)
-* [Image quay.io/podman/upstream fails on "podman build" when run as root (inside the container) on a RHEL 8.5: msg: modprobe: FATAL: Module ip_tables not found #13294](https://github.com/containers/podman/issues/13294)
