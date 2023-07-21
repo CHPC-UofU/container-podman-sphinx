@@ -11,22 +11,13 @@ WORKDIR /tmp
 
 # Install extra system packages
 RUN apk add --no-cache \
-    make=4.3-r0
+    make
 
 # Copy necessary files:
-COPY ./requirements.txt .
+COPY ./requirements.txt /tmp/requirements.txt
 
 # Install extra Python packages:
-RUN pip3 install -r ./requirements.txt
+RUN pip3 install -r /tmp/requirements.txt
 
-# Change working directory:
-WORKDIR /docs
-
-# Ports:
-EXPOSE 8000
-
-# Volumes:
-VOLUME [ "/docs" ]
-
-# Run once the container has started:
-ENTRYPOINT [ "/bin/bash" ]
+# Cleanup
+RUN rm /tmp/requirements.txt
